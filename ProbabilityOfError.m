@@ -662,7 +662,7 @@ COMPARISON PCSSL-VOT (Monte Carlo)
 				probPermutationP /=nRep;
 				Print[Style["[V]",Red],"P(",Subscript["\[CapitalSigma]",l],"=\[Pi]): ", N[probPermutationV,5]];
 				Print[Style["[P]",Blue],"P(",Subscript["\[CapitalPi]",l],"=\[Pi]): ", N[probPermutationP,5]];
-				errorV /= nRep;g
+				errorV /= nRep;
 				errorP /= nRep;
 				AppendTo[errorVOTING,errorV];
 				AppendTo[errorPCSSL,errorP];
