@@ -1,28 +1,28 @@
 (* ::Package:: *)
 
 BeginPackage["probabilityOfError`"]
-\[NonBreakingSpace]\[NonBreakingSpace]
+
   (*l_K related functions - Section VI*)
-  LKEQ::usage\[NonBreakingSpace]=\[NonBreakingSpace]"LKEQ[K_] calculates the l_K value for a problem with K equiprobable clases."; (*equip.*)
-  LKEQPlot::usage\[NonBreakingSpace]=\[NonBreakingSpace]"LKEQPlot[max_] plots the l_K values for problems of 1..max equiprobable classes.";(*no equip.*)
-  LKPriors::usage\[NonBreakingSpace]=\[NonBreakingSpace]"LKpriors[priors_,nRep_] use a Monte Carlo method with nRep repetitions to approximate l_k for a problem with Length[priors] non-equiprobable classes with priors given by the variable priors.";
+  LKEQ::usage="LKEQ[K_] calculates the l_K value for a problem with K equiprobable clases."; (*equip.*)
+  LKEQPlot::usage="LKEQPlot[max_] plots the l_K values for problems of 1..max equiprobable classes.";(*no equip.*)
+  LKPriors::usage="LKpriors[priors_,nRep_] use a Monte Carlo method with nRep repetitions to approximate l_k for a problem with Length[priors] non-equiprobable classes with priors given by the variable priors.";
   LKSampling::usage = "LKSampling[k_,samplesize_,nRep_,folder_] applies LKpriors over a population of size samplesize generate from a Dirichlet distributions with all alphas equal to 1.";
-  L3Value::usage\[NonBreakingSpace]=\[NonBreakingSpace]"L3[n1_,n2_,n3_] calculates l_k for a 3-class problem with priors n1,n2 and n3.";
-  L3Plot::usage\[NonBreakingSpace]=\[NonBreakingSpace]"L3Plot[] plots the variation of l_3 as presented in Figure 2b of the paper.";
+  L3Value::usage="L3[n1_,n2_,n3_] calculates l_k for a 3-class problem with priors n1,n2 and n3.";
+  L3Plot::usage="L3Plot[] plots the variation of l_3 as presented in Figure 2b of the paper.";
 
   (*Functions related to the probability of error - Section VII and Section VIII*)
-  ZeroEB::usage\[NonBreakingSpace]=\[NonBreakingSpace]"ZeroEB[K_,maxL_] calculates the probability of error for L={0..maxL} for a K class problem when there are no intersection between the components";
+  ZeroEB::usage="ZeroEB[K_,maxL_] calculates the probability of error for L={0..maxL} for a K class problem when there are no intersection between the components";
    (*eB > 0*)
-\[NonBreakingSpace]\[NonBreakingSpace]MCPCSSL::usage\[NonBreakingSpace]=\[NonBreakingSpace]"MCPCSSL[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of PCSSL asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
-  MCPCSSLBiased::usage\[NonBreakingSpace]=\[NonBreakingSpace]"MCPCSSLBiased[K_,distance_,sigma_,maxL_, nRep_, bias_]. It works as MCPCSSL, but the means of the learnt model are moved by the factor bias.";
-  MCVOTING::usage\[NonBreakingSpace]=\[NonBreakingSpace]"MCVOTING[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of VOTING asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
-  MCComparison::usage\[NonBreakingSpace]=\[NonBreakingSpace]"MCComparison[K_,distance_,sigma_,maxL_, nRep_] compares PCSSL and VOTING following the same procedure as the MCPCSSL and MCVOTING functions.";
+MCPCSSL::usage="MCPCSSL[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of PCSSL asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
+  MCPCSSLBiased::usage="MCPCSSLBiased[K_,distance_,sigma_,maxL_, nRep_, bias_]. It works as MCPCSSL, but the means of the learnt model are moved by the factor bias.";
+  MCVOTING::usage="MCVOTING[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of VOTING asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
+  MCComparison::usage="MCComparison[K_,distance_,sigma_,maxL_, nRep_] compares PCSSL and VOTING following the same procedure as the MCPCSSL and MCVOTING functions.";
   
 (************************************
 AUXILIARY FUNCTIONS
 *************************************)
   
-\[NonBreakingSpace]\[NonBreakingSpace]Begin["`Private`"]
+Begin["`Private`"]
 g
 	(*Hungarian algorithm (Kuhn,1955)*)
 	Hungarian[costM_,Maximisation_]:= Module[{},
@@ -385,8 +385,8 @@ g
 (************************************
 PC_SSL (Monte Carlo approx.)
 *************************************)
-\[NonBreakingSpace]\[NonBreakingSpace]
-	MCPCSSL[K_,distance_,sigma_,maxL_, nRep_]\[NonBreakingSpace]:=\[NonBreakingSpace]Module[{},
+
+	MCPCSSL[K_,distance_,sigma_,maxL_, nRep_]:=Module[{},
 		Do[
 
 			(*Model*)
@@ -455,8 +455,8 @@ PC_SSL (Monte Carlo approx.)
 (************************************
 PC_SSL biased (Monte Carlo approx.) u < Infinity 
 *************************************)
-\[NonBreakingSpace]\[NonBreakingSpace]
-	MCPCSSLBiased[K_,distance_,sigma_,maxL_, nRep_,bias_]\[NonBreakingSpace]:=\[NonBreakingSpace]Module[{},
+
+	MCPCSSLBiased[K_,distance_,sigma_,maxL_, nRep_,bias_]:=Module[{},
 		Do[
 
 			(*Model*)
@@ -528,7 +528,7 @@ PC_SSL biased (Monte Carlo approx.) u < Infinity
 VOTING (Monte Carlo approx.)
 *************************************)
 
-	MCVOTING[K_,distance_,sigma_,maxL_, nRep_]\[NonBreakingSpace]:=\[NonBreakingSpace]Module[{},
+	MCVOTING[K_,distance_,sigma_,maxL_, nRep_]:=Module[{},
 		Do[
 
 			(*Model*)
@@ -597,7 +597,7 @@ VOTING (Monte Carlo approx.)
 (************************************
 COMPARISON PCSSL-VOT (Monte Carlo)
 *************************************)
-	MCComparison[K_,distance_,sigma_,maxL_, nRep_]\[NonBreakingSpace]:=\[NonBreakingSpace]Module[{},
+	MCComparison[K_,distance_,sigma_,maxL_, nRep_]:=Module[{},
 		Do[
 		
 			(*Model*)
@@ -680,7 +680,7 @@ COMPARISON PCSSL-VOT (Monte Carlo)
 			Print[Style["ILLUSTRATION OF THE VARIATION OF THE PROBABILITIES OF ERROR",Bold]];
 			Print[ListPlot[{N[errorVOTING],N[errorPCSSL],N[errorEB]},Joined->True,PlotLegends->{"VOTING","PCSSL","Bayes Error"}, PlotRange -> {0,1},DataRange->{0,maxL},PlotStyle-> {{Thick,Red},{Thick,Blue},{Thick,Black}}]];
 		,{1}]];
-\[NonBreakingSpace]\[NonBreakingSpace]
+
 (************************************
 Probability of error with zero eB
 *************************************)
@@ -788,7 +788,7 @@ l_k for one population
 			Export[dirPreffix <> "sample" <> dirSuffix,sample,"Table"];
 			Export[dirPreffix <> "results" <> dirSuffix,results,"Table"];
 			Return[results];
-		,{1}]];\[NonBreakingSpace]
+		,{1}]];
 
 End[]
 EndPackage[]
