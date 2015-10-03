@@ -13,7 +13,7 @@ BeginPackage["probabilityOfError`"]
   (*Functions related to the probability of error - Section VII and Section VIII*)
   ZeroEB::usage="ZeroEB[K_,maxL_] calculates the probability of error for L={0..maxL} for a K class problem when there are no intersection between the components";
    (*eB > 0*)
-MCPCSSL::usage="MCPCSSL[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of PCSSL asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
+  MCPCSSL::usage="MCPCSSL[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of PCSSL asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
   MCPCSSLBiased::usage="MCPCSSLBiased[K_,distance_,sigma_,maxL_, nRep_, bias_]. It works as MCPCSSL, but the means of the learnt model are moved by the factor bias.";
   MCVOTING::usage="MCVOTING[K_,distance_,sigma_,maxL_, nRep_] use a Monte Carlo method with nRep repetitions to approximate the probability of error (l=0..maxL) of VOTING asumming a mixture of K Gaussian, with distance between the means and sigma representing the variance.";
   MCComparison::usage="MCComparison[K_,distance_,sigma_,maxL_, nRep_] compares PCSSL and VOTING following the same procedure as the MCPCSSL and MCVOTING functions.";
@@ -23,7 +23,7 @@ AUXILIARY FUNCTIONS
 *************************************)
   
 Begin["`Private`"]
-g
+
 	(*Hungarian algorithm (Kuhn,1955)*)
 	Hungarian[costM_,Maximisation_]:= Module[{},
 		Do[
